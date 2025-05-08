@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -5,11 +7,12 @@ import { cn } from '@/lib/utils';
 import { useChat } from '@/hooks/use-chat';
 import { useQuery } from 'convex/react';
 import { api } from '@/convex/_generated/api';
+import { Id } from '@/convex/_generated/dataModel';
 
 interface ChatWindowProps {
     isOpen: boolean;
     onClose: () => void;
-    documentId: string;
+    documentId: Id<'documents'>;
 }
 
 export const ChatWindow = ({ isOpen, onClose, documentId }: ChatWindowProps) => {
