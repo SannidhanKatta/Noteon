@@ -1,6 +1,5 @@
 'use client';
 
-import { PartialBlock } from '@blocknote/core';
 import '@blocknote/core/style.css';
 import { BlockNoteView, useBlockNote } from '@blocknote/react';
 import { useTheme } from 'next-themes';
@@ -17,7 +16,7 @@ const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
   const editor = useBlockNote({
     editable,
     initialContent: initialContent
-      ? (JSON.parse(initialContent) as PartialBlock[])
+      ? JSON.parse(initialContent)
       : undefined,
     onEditorContentChange: (editor) => {
       onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
