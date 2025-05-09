@@ -1,6 +1,14 @@
 import { authMiddleware } from '@clerk/nextjs';
 
-export default authMiddleware();
+// Specify public routes that don't require authentication
+export default authMiddleware({
+    publicRoutes: [
+        "/",
+        "/sign-in",
+        "/sign-up",
+        "/api/edgestore/init"
+    ]
+});
 
 export const config = {
     matcher: [
